@@ -46,7 +46,6 @@ job = "teacher";
 lastName = "Mendez";
 console.log(lastName);
 
-*/
 //Math operators
 const now = 2037;
 const ageSteven = now - 1993;
@@ -73,3 +72,16 @@ console.log(ageSam >= 18);
 const isFullAge = ageSam >= 18;
 
 console.log(now - 1991 > now - 2019);
+*/
+const now = 2037;
+const ageSteven = now - 1993;
+const ageSam = now - 2020;
+
+console.log(now - 1991 > now - 2019);
+
+let x, y;
+x = y = 25 - 10 - 5;
+console.log(x, y);
+
+const ageAverage = (ageSteven + ageSam) / 2;
+console.log(ageSteven, ageSam, ageAverage);
