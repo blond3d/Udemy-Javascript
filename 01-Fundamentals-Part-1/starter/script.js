@@ -85,6 +85,12 @@ console.log(x, y);
 const ageAverage = (ageSteven + ageSam) / 2;
 console.log(ageSteven, ageSam, ageAverage);
 
+
+////////////////////////////////////////////////////////
+
+CHALLENGE 1
+
+///////////////////////////////////////////////////////
 // let markWeight = 78;
 // let markHeight = 1.69;
 // let johnWeight = 92;
@@ -101,3 +107,27 @@ let bmiJohn = johnWeight / johnHeight ** 2;
 let markHigherBMI = bmiMark > bmiJohn;
 console.log(bmiMark, bmiJohn, markHigherBMI);
 */
+
+////////////////////////////////////////////////////////
+
+// STRINGS AND TEMPLATE LITERALS
+
+///////////////////////////////////////////////////////
+const firstName = "Steven";
+const job = "teacher";
+const birthYear = "1993";
+const year = 2037;
+const steven =
+	"I'm " + firstName + ", a " + (year - birthYear) + " years old " + job + "!";
+console.log(steven);
+
+const stevenNew = `I'm ${firstName}, a ${year - birthYear} years old ${job}! `;
+console.log(stevenNew);
+
+console.log(`Just a regular string...`);
+
+console.log("String with \n multiple \n lines");
+
+console.log(`String
+multiples
+lines`);
