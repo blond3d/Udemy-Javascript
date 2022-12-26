@@ -193,7 +193,6 @@ console.log("23" * "2");
 let n = "1" + 1;
 n = n - 1;
 console.log(n);
-*/
 
 ////////////////////////////////////////////////////////
 
@@ -211,12 +210,38 @@ console.log(Boolean(""));
 
 const money = 100;
 if (money) {
-	console.log("Don't spend it all ;)");
+  console.log("Don't spend it all ;)");
 } else {
-	console.log("You should get a job!");
+  console.log("You should get a job!");
 }
 
 let height = 0;
 if (height) {
-	console.log("Yay height is defined");
+  console.log("Yay height is defined");
 } else console.log("Height is undefined");
+*/
+////////////////////////////////////////////////////////
+
+// equality operators == vs ===
+
+///////////////////////////////////////////////////////
+
+const age = "18";
+if (age === 18) console.log("You just became an adult :D (Strict)");
+if (age == 18) console.log("You just became an adult :D (loose) ");
+
+const favorite = Number(prompt("What's your favorite number?"));
+console.log(favorite);
+console.log(typeof favorite);
+
+if (favorite === 23) {
+	console.log("Cool 23 is an amazing number");
+} else if (favorite === 7) {
+	console.log("7 is also a cool number");
+} else {
+	console.log("Number is not 7 or 23");
+}
+
+if (favorite !== 23) {
+	console.log("why not 23");
+}
