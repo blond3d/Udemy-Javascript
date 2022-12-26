@@ -130,15 +130,14 @@ console.log("String with \n multiple \n lines");
 console.log(`String
 multiples
 lines`);
-*/
 
 const age = 15;
 const isOldEnough = age >= 18;
 
 if (age >= 18) {
-	console.log("Sarah can start driving license 🚗");
+  console.log("Sarah can start driving license 🚗");
 } else {
-	const yearsLeft = 18 - age;
+  const yearsLeft = 18 - age;
 	console.log(`${yearsLeft} years left until driving license`);
 }
 
@@ -146,8 +145,28 @@ const birthYear = 2021;
 
 let century = "";
 if (birthYear <= 2000) {
-	century = 20;
+  century = 20;
 } else {
-	century = 21;
+  century = 21;
 }
 console.log(century);
+*/
+
+////////////////////////////////////////////////////////
+
+// CHALLENGE 2
+
+///////////////////////////////////////////////////////
+
+markWeight = 95;
+markHeight = 1.88;
+johnWeight = 85;
+johnHeight = 1.76;
+let bmiMark = markWeight / markHeight ** 2;
+let bmiJohn = johnWeight / johnHeight ** 2;
+
+if (bmiMark > bmiJohn) {
+	console.log(`Mark has a higher bmi. BMI ${bmiMark}`);
+} else {
+	console.log(`John has a higher bmi. BMI ${bmiJohn}`);
+}
