@@ -238,7 +238,25 @@ let total = [
 ];
 
 console.log(total);
+
+/////////////////////////////////////////////////////////////////////////////
+// Objects
+////////////////////////////////////////////////////////////////////////////
+const steven = {
+  firstName: "steven",
+	lastName: "mendez",
+	age: 2037 - 1993,
+	job: "teacher",
+	friends: ["michael", "Peter", "Steven"],
+};
+
+console.log(steven.lastName);
+
 */
+
+/////////////////////////////////////////////////////////////////////////////
+// Dot vs object notation
+////////////////////////////////////////////////////////////////////////////
 
 const steven = {
 	firstName: "steven",
@@ -248,4 +266,35 @@ const steven = {
 	friends: ["michael", "Peter", "Steven"],
 };
 
+console.log(steven);
 console.log(steven.lastName);
+console.log(steven["lastName"]);
+
+const nameKey = "Name";
+console.log(steven["first" + nameKey]);
+console.log(steven["last" + nameKey]);
+
+// console.log(steven.'last' + nameKey)
+
+const interestIn = prompt(
+	"What do you want to know about Steven?, Choose between firstName, lastName, age, job, friends"
+);
+
+if (steven[interestIn]) {
+	console.log(steven[interestIn]);
+} else {
+	console.log(
+		'Wrong request. Choose between firstName, lastName, age, job, friends"'
+	);
+}
+
+steven.location = "USA";
+steven["twitter"] = "@urpalsteven";
+console.log(steven);
+
+Challenge
+Jonas has 3 friends and his best friend is called michael
+
+console.log(
+	`${steven.firstName} has ${steven.friends.length} friends, and his best friends is called ${steven.friends[0]}`
+);
