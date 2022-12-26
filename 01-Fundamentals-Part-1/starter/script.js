@@ -297,8 +297,8 @@ const shouldDrive = hasDriversLicense && hasGoodVision;
       console.log(`Game is a tie. ${dolphinsScore} to ${koalasScore}`);
     }
     
+    
     */
-
 const day = "friday";
 
 switch (day) {
