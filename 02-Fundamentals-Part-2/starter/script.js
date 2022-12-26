@@ -252,14 +252,13 @@ const steven = {
 
 console.log(steven.lastName);
 
-*/
 
 /////////////////////////////////////////////////////////////////////////////
 // Dot vs object notation
 ////////////////////////////////////////////////////////////////////////////
 
 const steven = {
-	firstName: "steven",
+  firstName: "steven",
 	lastName: "mendez",
 	age: 2037 - 1993,
 	job: "teacher",
@@ -277,24 +276,56 @@ console.log(steven["last" + nameKey]);
 // console.log(steven.'last' + nameKey)
 
 const interestIn = prompt(
-	"What do you want to know about Steven?, Choose between firstName, lastName, age, job, friends"
-);
+  "What do you want to know about Steven?, Choose between firstName, lastName, age, job, friends"
+  );
+  
+  if (steven[interestIn]) {
+    console.log(steven[interestIn]);
+  } else {
+    console.log(
+      "Wrong request. Choose between firstName, lastName, age, job, friends"
+      );
+    }
+    
+    steven.location = "USA";
+    steven["twitter"] = "@urpalsteven";
+    console.log(steven);
+    
+    // Challenge; Jonas has 3 friends and his best friend is called michael
+    
+    console.log(
+      `${steven.firstName} has ${steven.friends.length} friends, and his best friends is called ${steven.friends[0]}`
+      );
+*/
 
-if (steven[interestIn]) {
-	console.log(steven[interestIn]);
-} else {
-	console.log(
-		'Wrong request. Choose between firstName, lastName, age, job, friends"'
-	);
-}
+const steven = {
+	firstName: "steven",
+	lastName: "mendez",
+	birthYear: 1993,
+	job: "teacher",
+	friends: ["michael", "Peter", "Steven"],
+	hasDriversLicense: true,
 
-steven.location = "USA";
-steven["twitter"] = "@urpalsteven";
-console.log(steven);
+	// calcAge: function (birthYear) {
+	// 	return 2037 - birthYear;
+	// },
+	// calcAge: function () {
+	// 	console.log(this);
+	// 	return 2037 - this.birthYear;
+	// },
+	calcAge: function () {
+		this.age = 2037 - this.birthYear;
+		return this.age;
+	},
+	getSummary: function () {
+		return `${this.firstName} is a ${this.calcAge()}-year old ${
+			this.job
+		}, and he has ${this.hasDriversLicense ? "a" : "no"} driver's license`;
+	},
+};
 
-Challenge
-Jonas has 3 friends and his best friend is called michael
+console.log(steven.calcAge());
+console.log(steven.age);
 
-console.log(
-	`${steven.firstName} has ${steven.friends.length} friends, and his best friends is called ${steven.friends[0]}`
-);
+//challenge
+console.log(steven.getSummary());
