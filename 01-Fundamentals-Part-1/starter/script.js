@@ -338,7 +338,7 @@ if (day === "monday") {
 } else {
 	console.log("not a valid day");
 }
-*/
+
 
 ////////////////////////////////////////////////////////
 
@@ -365,3 +365,18 @@ if (age >= 18) {
 console.log(drink2);
 
 console.log(`I like to drink ${age >= 18 ? "wine" : "water"}`);
+*/
+
+////////////////////////////////////////////////////////
+
+// challenge 4
+
+///////////////////////////////////////////////////////
+let bill = 275;
+let tip = 50 <= bill >= 300 ? bill * 0.15 : bill * 0.2;
+console.log(tip);
+console.log(
+	`the bill was ${bill}, the tip was ${tip}, and the total value was ${
+		bill + tip
+	}`
+);
