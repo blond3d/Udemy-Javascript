@@ -141,7 +141,6 @@ function checkWinner(avgDolphins, avgKoalas) {
 
 checkWinner(avgDolphins, avgKoalas);
 checkWinner(avgDolphins2, avgKoalas2);
-*/
 
 /////////////////////////////////////////////////////////////////////////////
 // ARRAYS
@@ -172,7 +171,7 @@ console.log(steven);
 
 //exercise
 const calcAge = function (birthYear) {
-	return 2037 - birthYear;
+  return 2037 - birthYear;
 };
 
 const years = [1990, 1967, 2002, 2010, 2018];
@@ -183,8 +182,35 @@ const age3 = calcAge(years[years.length - 1]);
 console.log(age1, age2, age3);
 
 const ages = [
-	calcAge(years[0]),
+  calcAge(years[0]),
 	calcAge(years[1]),
 	calcAge(years[years.length - 1]),
 ];
 console.log(ages);
+*/
+/////////////////////////////////////////////////////////////////////////////
+// ARRAYS
+////////////////////////////////////////////////////////////////////////////
+
+//adds elements
+const friends = ["Michael", "Steven", "Peter"];
+const newLength = friends.push("Jay"); // push method returns length of array
+console.log(friends, newLength);
+friends.unshift("John");
+console.log(friends);
+// remove elements
+const popped = friends.pop(); //returns popped element
+console.log(popped);
+console.log(friends);
+
+friends.shift();
+console.log(friends);
+friends.push(23);
+console.log(friends.indexOf("Steven"));
+console.log(friends.includes("Steven"));
+console.log(friends.includes("Bob"));
+console.log(friends.includes(23));
+
+if (friends.includes("Peter")) {
+	console.log("you have a freind named peter");
+}
