@@ -219,7 +219,6 @@ let height = 0;
 if (height) {
   console.log("Yay height is defined");
 } else console.log("Height is undefined");
-*/
 ////////////////////////////////////////////////////////
 
 // equality operators == vs ===
@@ -235,13 +234,51 @@ console.log(favorite);
 console.log(typeof favorite);
 
 if (favorite === 23) {
-	console.log("Cool 23 is an amazing number");
+  console.log("Cool 23 is an amazing number");
 } else if (favorite === 7) {
-	console.log("7 is also a cool number");
+  console.log("7 is also a cool number");
 } else {
-	console.log("Number is not 7 or 23");
+  console.log("Number is not 7 or 23");
 }
 
 if (favorite !== 23) {
-	console.log("why not 23");
+  console.log("why not 23");
 }
+
+////////////////////////////////////////////////////////
+
+// Logical Operator
+
+///////////////////////////////////////////////////////
+
+const hasDriversLicense = true; //a
+const hasGoodVision = true; //b
+
+console.log(hasDriversLicense && hasGoodVision);
+console.log(hasDriversLicense || hasGoodVision);
+console.log(!hasDriversLicense);
+
+const shouldDrive = hasDriversLicense && hasGoodVision;
+
+// if (hasDriversLicense && hasGoodVision) {
+  // 	console.log("Sarah is able to drive");
+  // } else {
+    // 	console.log("Someone else should drive");
+    // }
+    
+    const isTired = false; //
+    console.log(hasDriversLicense || hasGoodVision || isTired);
+    
+    if (hasDriversLicense && hasGoodVision && !isTired) {
+      console.log("Sarah is able to drive");
+    } else {
+      console.log("Someone else should drive");
+    }
+    
+    */
+
+////////////////////////////////////////////////////////
+
+// Challenge 3
+
+///////////////////////////////////////////////////////
