@@ -106,7 +106,6 @@ let bmiMark = markWeight / markHeight ** 2;
 let bmiJohn = johnWeight / johnHeight ** 2;
 let markHigherBMI = bmiMark > bmiJohn;
 console.log(bmiMark, bmiJohn, markHigherBMI);
-*/
 
 ////////////////////////////////////////////////////////
 
@@ -118,7 +117,7 @@ const job = "teacher";
 const birthYear = "1993";
 const year = 2037;
 const steven =
-	"I'm " + firstName + ", a " + (year - birthYear) + " years old " + job + "!";
+"I'm " + firstName + ", a " + (year - birthYear) + " years old " + job + "!";
 console.log(steven);
 
 const stevenNew = `I'm ${firstName}, a ${year - birthYear} years old ${job}! `;
@@ -131,3 +130,24 @@ console.log("String with \n multiple \n lines");
 console.log(`String
 multiples
 lines`);
+*/
+
+const age = 15;
+const isOldEnough = age >= 18;
+
+if (age >= 18) {
+	console.log("Sarah can start driving license 🚗");
+} else {
+	const yearsLeft = 18 - age;
+	console.log(`${yearsLeft} years left until driving license`);
+}
+
+const birthYear = 2021;
+
+let century = "";
+if (birthYear <= 2000) {
+	century = 20;
+} else {
+	century = 21;
+}
+console.log(century);
