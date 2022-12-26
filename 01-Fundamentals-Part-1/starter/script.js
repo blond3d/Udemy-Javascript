@@ -275,25 +275,66 @@ const shouldDrive = hasDriversLicense && hasGoodVision;
       console.log("Someone else should drive");
     }
     
+    
+    ////////////////////////////////////////////////////////
+    
+    // Challenge 3
+    
+    ///////////////////////////////////////////////////////
+    
+    const dolphinsScore = (97 + 112 + 101) / 3;
+    const koalasScore = (109 + 95 + 123) / 3;
+    
+    console.log(dolphinsScore, koalasScore);
+    
+    if (dolphinsScore && koalasScore < 100) {
+      console.log("Minimum score not met");
+    } else if (dolphinsScore > koalasScore) {
+      console.log(`Dolphins beat the koalas ${dolphinsScore} to ${koalasScore}`);
+    } else if (dolphinsScore < koalasScore) {
+      console.log(`Koalas beat the dolphins ${koalasScore} to ${dolphinsScore}`);
+    } else if (dolphinsScore === koalasScore) {
+      console.log(`Game is a tie. ${dolphinsScore} to ${koalasScore}`);
+    }
+    
     */
 
-////////////////////////////////////////////////////////
+const day = "friday";
 
-// Challenge 3
+switch (day) {
+	case "monday": // day === monday
+		console.log("Plan course structure");
+		console.log("go to coding meetup");
+		break;
+	case "tuesday":
+		console.log("prepare theory videos");
+		break;
+	case "wednesday":
+	case "thursday":
+		console.log("write code examples");
+		break;
+	case "friday":
+		console.log("record videos");
+		break;
+	case "saturday":
+	case "sunday":
+		console.log("enjoy the weekend");
+		break;
+	default:
+		console.log("not a valid day");
+}
 
-///////////////////////////////////////////////////////
-
-const dolphinsScore = (97 + 112 + 101) / 3;
-const koalasScore = (109 + 95 + 123) / 3;
-
-console.log(dolphinsScore, koalasScore);
-
-if (dolphinsScore && koalasScore < 100) {
-	console.log("Minimum score not met");
-} else if (dolphinsScore > koalasScore) {
-	console.log(`Dolphins beat the koalas ${dolphinsScore} to ${koalasScore}`);
-} else if (dolphinsScore < koalasScore) {
-	console.log(`Koalas beat the dolphins ${koalasScore} to ${dolphinsScore}`);
-} else if (dolphinsScore === koalasScore) {
-	console.log(`Game is a tie. ${dolphinsScore} to ${koalasScore}`);
+if (day === "monday") {
+	console.log("Plan course structure");
+	console.log("go to coding meetup");
+} else if (day === "tuesday") {
+	console.log("prepare theory videos");
+} else if (day === "wednesday" || day === "thursday") {
+	console.log("write code examples");
+} else if (day === "friday") {
+	console.log("record videos");
+} else if (day === "saturday" || day === "sunday") {
+	console.log("enjoy the weekend");
+} else {
+	console.log("not a valid day");
 }
