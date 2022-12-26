@@ -282,3 +282,18 @@ const shouldDrive = hasDriversLicense && hasGoodVision;
 // Challenge 3
 
 ///////////////////////////////////////////////////////
+
+const dolphinsScore = (97 + 112 + 101) / 3;
+const koalasScore = (109 + 95 + 123) / 3;
+
+console.log(dolphinsScore, koalasScore);
+
+if (dolphinsScore && koalasScore < 100) {
+	console.log("Minimum score not met");
+} else if (dolphinsScore > koalasScore) {
+	console.log(`Dolphins beat the koalas ${dolphinsScore} to ${koalasScore}`);
+} else if (dolphinsScore < koalasScore) {
+	console.log(`Koalas beat the dolphins ${koalasScore} to ${dolphinsScore}`);
+} else if (dolphinsScore === koalasScore) {
+	console.log(`Game is a tie. ${dolphinsScore} to ${koalasScore}`);
+}
