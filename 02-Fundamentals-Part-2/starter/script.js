@@ -296,36 +296,77 @@ const interestIn = prompt(
     console.log(
       `${steven.firstName} has ${steven.friends.length} friends, and his best friends is called ${steven.friends[0]}`
       );
+      
+      const steven = {
+        firstName: "steven",
+        lastName: "mendez",
+        birthYear: 1993,
+        job: "teacher",
+        friends: ["michael", "Peter", "Steven"],
+        hasDriversLicense: true,
+        
+        // calcAge: function (birthYear) {
+          // 	return 2037 - birthYear;
+          // },
+          // calcAge: function () {
+            // 	console.log(this);
+            // 	return 2037 - this.birthYear;
+            // },
+            calcAge: function () {
+              this.age = 2037 - this.birthYear;
+              return this.age;
+            },
+            getSummary: function () {
+              return `${this.firstName} is a ${this.calcAge()}-year old ${
+                this.job
+              }, and he has ${this.hasDriversLicense ? "a" : "no"} driver's license`;
+            },
+          };
+          
+          console.log(steven.calcAge());
+          console.log(steven.age);
+          
+          //challenge
+          console.log(steven.getSummary());
+          
 */
 
-const steven = {
-	firstName: "steven",
-	lastName: "mendez",
-	birthYear: 1993,
-	job: "teacher",
-	friends: ["michael", "Peter", "Steven"],
-	hasDriversLicense: true,
+/////////////////////////////////////////////////////////////////////////////
+// Challenge 3
+////////////////////////////////////////////////////////////////////////////
 
-	// calcAge: function (birthYear) {
-	// 	return 2037 - birthYear;
-	// },
-	// calcAge: function () {
-	// 	console.log(this);
-	// 	return 2037 - this.birthYear;
-	// },
-	calcAge: function () {
-		this.age = 2037 - this.birthYear;
-		return this.age;
-	},
-	getSummary: function () {
-		return `${this.firstName} is a ${this.calcAge()}-year old ${
-			this.job
-		}, and he has ${this.hasDriversLicense ? "a" : "no"} driver's license`;
+let mark = {
+	firstName: "Mark",
+	lastName: "Miller",
+	mass: 78,
+	height: 1.69,
+	calcBMI: function () {
+		this.bmi = this.mass / this.height ** 2;
+		return this.bmi;
 	},
 };
 
-console.log(steven.calcAge());
-console.log(steven.age);
+let john = {
+	firstName: "John",
+	lastName: "Smith",
+	mass: 92,
+	height: 1.95,
+	calcBMI: function () {
+		this.bmi = this.mass / this.height ** 2;
+		return this.bmi;
+	},
+};
 
-//challenge
-console.log(steven.getSummary());
+function compareBMI(markBMI, johnBMI) {
+	if (markBMI > johnBMI) {
+		console.log(
+			`${mark.firstName} ${mark.lastName}'s BMI(${mark.bmi}) is higher than ${john.firstName} ${john.lastName}'s (${john.bmi})`
+		);
+	} else {
+		console.log(
+			`${john.firstName} ${john.lastName} BMI(${john.bmi}) is higher than ${mark.firstName} ${mark.lastName}'s (${mark.bmi})`
+		);
+	}
+}
+
+compareBMI(mark.calcBMI(), john.calcBMI());
