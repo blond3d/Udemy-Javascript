@@ -212,5 +212,30 @@ console.log(friends.includes("Bob"));
 console.log(friends.includes(23));
 
 if (friends.includes("Peter")) {
-	console.log("you have a freind named peter");
+	console.log("you have a friend named peter");
 }
+
+/////////////////////////////////////////////////////////////////////////////
+// Challenge 2
+////////////////////////////////////////////////////////////////////////////
+// Test data: 125, 555 and 44
+
+function tip(bill) {
+	if (50 <= bill && bill <= 300) {
+		return bill * 0.15;
+	} else {
+		return bill * 0.2;
+	}
+}
+let bills = [125, 555, 44];
+
+let tips = [tip(bills[0]), tip(bills[1]), tip(bills[2])];
+console.log(tips);
+
+let total = [
+	tip(bills[0]) + bills[0],
+	tip(bills[1]) + bills[1],
+	tip(bills[2]) + bills[2],
+];
+
+console.log(total);
