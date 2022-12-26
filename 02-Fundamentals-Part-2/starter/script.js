@@ -119,7 +119,6 @@ const yearsUntilRetirement = function (birthYear, firstName) {
 
 console.log(yearsUntilRetirement(1991, "Steven"));
 console.log(yearsUntilRetirement(1950, "Mike"));
-*/
 
 ///////////////////////////////////////
 // Challenge 1
@@ -133,12 +132,59 @@ const avgDolphins2 = calcAverage(85, 54, 41);
 const avgKoalas2 = calcAverage(23, 34, 27);
 
 function checkWinner(avgDolphins, avgKoalas) {
-	if (avgDolphins >= avgKoalas * 2) {
-		console.log(`Dolphins win (${avgDolphins} vs ${avgKoalas})`);
+  if (avgDolphins >= avgKoalas * 2) {
+    console.log(`Dolphins win (${avgDolphins} vs ${avgKoalas})`);
 	} else if (avgKoalas >= avgDolphins * 2) {
-		console.log(`Koalas win (${avgKoalas} vs ${avgDolphins}`);
+    console.log(`Koalas win (${avgKoalas} vs ${avgDolphins}`);
 	} else console.log("No one wins");
 }
 
 checkWinner(avgDolphins, avgKoalas);
 checkWinner(avgDolphins2, avgKoalas2);
+*/
+
+/////////////////////////////////////////////////////////////////////////////
+// ARRAYS
+////////////////////////////////////////////////////////////////////////////
+
+// const friend1 = "Michael";
+// const friend2 = "Steven";
+// const friend3 = "Peter";
+
+const friends = ["Michael", "Steven", "Peter"];
+console.log(friends);
+
+// const years = new Array(1991, 1984, 2008, 2020);
+console.log(friends[1]);
+console.log(friends[2]);
+
+console.log(friends.length);
+console.log(friends[friends.length - 1]); //quick way to get last value in an array
+
+friends[2] = "Jay";
+console.log(friends[2]);
+// friends = ["bob", "ellis"];
+
+const firstName = "Steven";
+const steven = [firstName, "Mendez", 2037 - 1993, "teacher", friends];
+
+console.log(steven);
+
+//exercise
+const calcAge = function (birthYear) {
+	return 2037 - birthYear;
+};
+
+const years = [1990, 1967, 2002, 2010, 2018];
+
+const age1 = calcAge(years[0]);
+const age2 = calcAge(years[1]);
+const age3 = calcAge(years[years.length - 1]);
+console.log(age1, age2, age3);
+
+const ages = [
+	calcAge(years[0]),
+	calcAge(years[1]),
+	calcAge(years[years.length - 1]),
+];
+console.log(ages);
