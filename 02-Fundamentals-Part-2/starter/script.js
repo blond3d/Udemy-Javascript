@@ -329,7 +329,7 @@ const interestIn = prompt(
           //challenge
           console.log(steven.getSummary());
           
-*/
+
 
 /////////////////////////////////////////////////////////////////////////////
 // Challenge 3
@@ -370,3 +370,12 @@ function compareBMI(markBMI, johnBMI) {
 }
 
 compareBMI(mark.calcBMI(), john.calcBMI());
+*/
+
+for (let rep = 1; rep <= 10; rep++) {
+	console.log(`lifting weights repetition ${rep}`);
+}
+
+for (let rep = 10; rep >= 0; rep--) {
+	console.log(`lifting weights repetition ${rep}`);
+}
