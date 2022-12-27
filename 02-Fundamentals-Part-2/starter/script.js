@@ -379,7 +379,7 @@ for (let rep = 1; rep <= 10; rep++) {
 for (let rep = 10; rep >= 0; rep--) {
 	console.log(`lifting weights repetition ${rep}`);
 }
-*/
+
 
 const stevenArray = [
 	"Steven",
@@ -420,4 +420,24 @@ console.log("---Break with number---");
 for (let i = 0; i < stevenArray.length; i++) {
 	if (typeof stevenArray[i] === "number") break;
 	console.log(stevenArray[i], typeof stevenArray[i]);
+}
+*/
+
+const stevenArray = [
+	"Steven",
+	"Mendez",
+	2037 - 1993,
+	"teacher",
+	["Michael", "Peter", "John"],
+];
+
+for (let i = stevenArray.length - 1; i >= 0; i--) {
+	console.log(i, stevenArray[i]);
+}
+
+for (let exercise = 1; exercise <= 3; exercise++) {
+	console.log(`----------- Starting exercise ${exercise}`);
+	for (let rep = 1; rep < 6; rep++) {
+		console.log(`Exercise ${exercise}: Lifting weights repetition ${rep}`);
+	}
 }
