@@ -370,7 +370,7 @@ function compareBMI(markBMI, johnBMI) {
 }
 
 compareBMI(mark.calcBMI(), john.calcBMI());
-*/
+
 
 for (let rep = 1; rep <= 10; rep++) {
 	console.log(`lifting weights repetition ${rep}`);
@@ -378,4 +378,46 @@ for (let rep = 1; rep <= 10; rep++) {
 
 for (let rep = 10; rep >= 0; rep--) {
 	console.log(`lifting weights repetition ${rep}`);
+}
+*/
+
+const stevenArray = [
+	"Steven",
+	"Mendez",
+	2037 - 1993,
+	"teacher",
+	["Michael", "Peter", "John"],
+	true,
+	"hello",
+];
+
+let types = [];
+
+for (let i = 0; i < stevenArray.length; i++) {
+	console.log(stevenArray[i], typeof stevenArray[i]);
+	// types[i] = typeof stevenArray[i];
+	types.push(typeof stevenArray[i]);
+}
+
+console.log(types);
+
+let years = [1991, 2007, 1969, 2020];
+let ages = [];
+for (let i = 0; i < years.length; i++) {
+	ages.push(2037 - years[i]);
+}
+
+console.log(ages);
+
+//continue and break
+console.log("----only strings----");
+for (let i = 0; i < stevenArray.length; i++) {
+	if (typeof stevenArray[i] !== "string") continue;
+	console.log(stevenArray[i], typeof stevenArray[i]);
+}
+
+console.log("---Break with number---");
+for (let i = 0; i < stevenArray.length; i++) {
+	if (typeof stevenArray[i] === "number") break;
+	console.log(stevenArray[i], typeof stevenArray[i]);
 }
