@@ -370,7 +370,9 @@ function compareBMI(markBMI, johnBMI) {
 }
 
 compareBMI(mark.calcBMI(), john.calcBMI());
-
+/////////////////////////////////////////////////////////////////////////////
+// Iteration for loop
+////////////////////////////////////////////////////////////////////////////
 
 for (let rep = 1; rep <= 10; rep++) {
 	console.log(`lifting weights repetition ${rep}`);
@@ -380,7 +382,9 @@ for (let rep = 10; rep >= 0; rep--) {
 	console.log(`lifting weights repetition ${rep}`);
 }
 
-
+/////////////////////////////////////////////////////////////////////////////
+// Looping arrays, breaking, continue
+////////////////////////////////////////////////////////////////////////////
 const stevenArray = [
 	"Steven",
 	"Mendez",
@@ -421,8 +425,10 @@ for (let i = 0; i < stevenArray.length; i++) {
 	if (typeof stevenArray[i] === "number") break;
 	console.log(stevenArray[i], typeof stevenArray[i]);
 }
-*/
 
+/////////////////////////////////////////////////////////////////////////////
+// looping backwards and loops in loops
+////////////////////////////////////////////////////////////////////////////
 const stevenArray = [
 	"Steven",
 	"Mendez",
@@ -440,4 +446,27 @@ for (let exercise = 1; exercise <= 3; exercise++) {
 	for (let rep = 1; rep < 6; rep++) {
 		console.log(`Exercise ${exercise}: Lifting weights repetition ${rep}`);
 	}
+}
+*/
+/////////////////////////////////////////////////////////////////////////////
+// While Loop 3
+////////////////////////////////////////////////////////////////////////////
+
+// for (let rep = 1; rep <= 10; rep++) {
+// 	console.log(`lifting weights repetition ${rep}`);
+// }
+
+let rep = 1;
+while (rep <= 10) {
+	// console.log(`While: lifting weights repetition ${rep}`);
+	rep++;
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+console.log(dice);
+
+while (dice !== 6) {
+	console.log(`You rolled a ${dice}`);
+	dice = Math.trunc(Math.random() * 6) + 1;
+	if (dice === 6) console.log("Loop is about to end");
 }
