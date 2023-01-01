@@ -140,7 +140,6 @@ var addArrow = (a, b) => {
 };
 
 addArrow(2, 4, 5);
-*/
 
 let age = 30;
 let oldAge = age;
@@ -156,3 +155,41 @@ friend.age = 27;
 
 console.log('Friend:', friend);
 console.log('Me:', me);
+*/
+
+//Primitive Types
+let lastName = 'Williams';
+let oldLastName = lastName;
+lastName = 'Davis';
+console.log(lastName, oldLastName);
+
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+};
+
+//Reference types
+const marriedJessica = jessica;
+marriedJessica.lastName = 'Davis';
+console.log('before', jessica);
+console.log('after', marriedJessica);
+
+// marriedJessica = {};
+
+//Copying objects
+const jessica2 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Alice', 'bob'],
+};
+
+const jessicaCopy = Object.assign({}, jessica2);
+jessicaCopy.lastName = 'Davis';
+
+jessicaCopy.family.push('Mary');
+jessicaCopy.family.push('John');
+
+console.log('before', jessica2);
+console.log('after', jessicaCopy);
