@@ -54,6 +54,7 @@ const restaurant = {
   },
 };
 
+/*
 const rest1 = {
   name: 'Capri',
   numGuests: 20,
@@ -87,7 +88,7 @@ rest2.owner &&= '<ANONYMOUS>';
 console.log(rest1);
 console.log(rest2);
 
-/*
+
 //Spread, because on right side of assignment operator
 const arr = [1, 2, ...[3, 4]];
 
@@ -251,3 +252,69 @@ console.log(i, j, k);
 const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r);
 */
+
+//Coding Challenge 1
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+const players1 = [...game.players[0]];
+const players2 = [...game.players[1]];
+const [gk, ...fieldPlayers] = players1;
+
+const allPlayers = [...game.players[0], ...game.players[1]];
+
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+
+const { team1, x: draw, team2 } = game.odds;
+console.log(team1, draw, team2);
+
+const printGoals = function (...players) {
+  console.log(`${players.length} goals were scored`);
+  for (let x = 0; x < +players.length; x++) {
+    console.log(`${players[x]} scored a goal`);
+  }
+};
+
+printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+
+team1 < team2 && console.log('Team 1 is more likely to win');
+team1 > team2 && console.log('Team 2 is more likely to win');
