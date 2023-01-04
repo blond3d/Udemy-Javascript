@@ -54,6 +54,40 @@ const restaurant = {
   },
 };
 
+const rest1 = {
+  name: 'Capri',
+  numGuests: 20,
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+//OR assignment operator
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+//Nullish Assignment operator
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+//
+// rest1.owner = rest1.owner && '<ANONYMOUS>';
+// rest2.owner = rest2.owner && '<ANONYMOUS>';
+
+//And Assignment operator
+rest1.owner &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
+
+/*
 //Spread, because on right side of assignment operator
 const arr = [1, 2, ...[3, 4]];
 
@@ -90,7 +124,7 @@ add(...x);
 restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 restaurant.orderPizza('mushrooms');
 
-/*
+
 const arr = [7, 8, 9];
 const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
 console.log(badNewArr);
