@@ -268,7 +268,6 @@ if (restaurant.orderPizza) {
 }
 
 restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
-*/
 
 ///////////////////////////////////////
 // Logical Assignment Operators
@@ -301,3 +300,69 @@ rest2.owner &&= '<ANONYMOUS>';
 
 console.log(rest1);
 console.log(rest2);
+*/
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+let [players1, players2] = game.players;
+console.log(players1, players2);
+
+let [gk, ...fieldPlayers] = players1;
+console.log(gk, fieldPlayers);
+
+let allPlayers = [...players1, ...players2];
+console.log(allPlayers);
+
+let players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+console.log(players1Final);
+
+let { team1, x: draw, team2 } = game.odds;
+console.log(draw);
+
+let printGoals = function (...scorers) {
+  for (let i = 0; i < scorers.length; i++) {
+    console.log(`${scorers[i]} scored a goal`);
+  }
+  console.log(`${scorers.length} goals were scored`);
+};
+printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+// printGoals(...game.scored);
