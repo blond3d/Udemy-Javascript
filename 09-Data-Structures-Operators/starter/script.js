@@ -300,7 +300,10 @@ rest2.owner &&= '<ANONYMOUS>';
 
 console.log(rest1);
 console.log(rest2);
-*/
+
+
+////////////////////////////////////////
+//Challenge 1
 
 const game = {
   team1: 'Bayern Munich',
@@ -366,3 +369,17 @@ let printGoals = function (...scorers) {
 };
 printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
 // printGoals(...game.scored);
+*/
+
+/////////////////////////////////////////////////////
+//Looping arrays
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item);
+
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1} ${el}`);
+}
+
+// console.log([...menu.entries()]);
