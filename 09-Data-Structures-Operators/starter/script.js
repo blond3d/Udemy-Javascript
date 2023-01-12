@@ -29,6 +29,8 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
+  openingHours,
+
   order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
@@ -369,7 +371,7 @@ let printGoals = function (...scorers) {
 };
 printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
 // printGoals(...game.scored);
-*/
+
 
 /////////////////////////////////////////////////////
 //Looping arrays
@@ -383,3 +385,4 @@ for (const [i, el] of menu.entries()) {
 }
 
 // console.log([...menu.entries()]);
+*/
