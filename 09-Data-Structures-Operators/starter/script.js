@@ -411,7 +411,7 @@ console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
 const users = [{ name: 'jonas', email: 'hello@jonas.io' }];
 
 console.log(users[0]?.name ?? 'User array empty');
-*/
+
 
 //////////////////////////////////
 //Looping Objects: keys, values, entries
@@ -439,4 +439,78 @@ const entries = Object.entries(openingHours);
 
 for (const [day, { open, close }] of entries) {
   console.log(`On ${day} we open at ${open} and close at ${close}`);
+}
+*/
+
+//////////////////////////////////
+//Challenge 2
+/////////////////////////////////
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+//1
+for (let [goal, player] of game.scored.entries()) {
+  console.log(`Goal ${goal + 1}: ${player}`);
+}
+
+//2
+let average = 0;
+let odds = Object.values(game.odds).length;
+for (let odd of Object.values(game.odds)) {
+  average += odd;
+}
+
+average /= odds;
+
+console.log(average);
+
+//3
+for (let [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === 'x' ? 'draw' : `Victory ${game[team]}`;
+  console.log(`Odd of ${teamStr} ${odd}`);
+}
+
+//4
+const scorers = {};
+for (const player of game.scored) {
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
 }
