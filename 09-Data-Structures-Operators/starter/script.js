@@ -386,3 +386,28 @@ for (const [i, el] of menu.entries()) {
 
 // console.log([...menu.entries()]);
 */
+
+//////////////////////////////////
+//Optional Chaining(?.)
+/////////////////////////////////
+// if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+
+//with optional chaining
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+
+//example
+const days = ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun'];
+for (const day of days) {
+  // console.log(day);
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day} we open at ${open}`);
+}
+
+//Methods optional chaining
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+
+//Arrays
+const users = [{ name: 'jonas', email: 'hello@jonas.io' }];
+
+console.log(users[0]?.name ?? 'User array empty');
