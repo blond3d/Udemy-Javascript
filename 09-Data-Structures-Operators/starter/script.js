@@ -514,7 +514,7 @@ const scorers = {};
 for (const player of game.scored) {
   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
 }
-*/
+
 
 const ordersSet = new Set([
   'pasta',
@@ -552,3 +552,34 @@ console.log(
 );
 
 console.log(new Set('stevenmendez').size);
+*/
+
+const rest = new Map();
+rest.set('name', 'pizza hut');
+rest.set(1, 'houston');
+console.log(rest.set(2, 'austin'));
+
+rest
+  .set('categories', ['pizza', 'vegan', 'keto'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'we are open')
+  .set(false, 'we are closed');
+
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get(1));
+
+const time = 21;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+const arr = [1, 2];
+console.log(rest.has('categories'));
+rest.delete(2);
+rest.set(arr, 'test');
+rest.set(document.querySelector('h1'), 'heading');
+console.log(rest);
+// rest.clear()
+console.log(rest.size);
+
+console.log(rest.get(arr));
