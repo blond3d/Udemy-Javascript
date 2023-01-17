@@ -440,7 +440,7 @@ const entries = Object.entries(openingHours);
 for (const [day, { open, close }] of entries) {
   console.log(`On ${day} we open at ${open} and close at ${close}`);
 }
-*/
+
 
 //////////////////////////////////
 //Challenge 2
@@ -495,7 +495,7 @@ for (let [goal, player] of game.scored.entries()) {
 //2
 let average = 0;
 let odds = Object.values(game.odds).length;
-for (let odd of Object.values(game.odds)) {
+for (let odd of odds) {
   average += odd;
 }
 
@@ -509,8 +509,46 @@ for (let [team, odd] of Object.entries(game.odds)) {
   console.log(`Odd of ${teamStr} ${odd}`);
 }
 
-//4
+//bonus
 const scorers = {};
 for (const player of game.scored) {
   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
 }
+*/
+
+const ordersSet = new Set([
+  'pasta',
+  'pizza',
+  'pizza',
+  'risotto',
+  'pasta',
+  'pizza',
+]);
+
+console.log(ordersSet);
+
+console.log(new Set('Jonas'));
+
+console.log(ordersSet.size);
+
+console.log(ordersSet.has('pizza'));
+console.log(ordersSet.has('bread'));
+ordersSet.add('garlic bread');
+ordersSet.add('garlic bread');
+ordersSet.delete('risotto');
+// ordersSet.clear();
+console.log(ordersSet);
+
+for (const order of ordersSet) console.log(order);
+
+//example of sets use
+const staff = ['waiter', 'chef', 'waiter', 'manager', 'chef', 'waiter'];
+
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+
+console.log(
+  new Set(['waiter', 'chef', 'waiter', 'manager', 'chef', 'waiter']).size
+);
+
+console.log(new Set('stevenmendez').size);
