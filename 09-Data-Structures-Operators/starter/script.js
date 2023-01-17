@@ -552,7 +552,7 @@ console.log(
 );
 
 console.log(new Set('stevenmendez').size);
-*/
+
 
 const rest = new Map();
 rest.set('name', 'pizza hut');
@@ -583,3 +583,37 @@ console.log(rest);
 console.log(rest.size);
 
 console.log(rest.get(arr));
+*/
+
+const question = new Map([
+  ['question', 'what is the best programming language in the world'],
+  [1, 'c'],
+  [2, 'java'],
+  [3, 'javascript'],
+  ['correct', 3],
+  [true, 'Correct'],
+  [false, 'try again'],
+]);
+
+console.log(question);
+
+//convert object to maps
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+//quiz app
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`answer ${key}: ${value}`);
+}
+
+// const answer = Number(prompt('Your answer'));
+const answer = 3;
+console.log(answer);
+if (answer === question.get('correct')) {
+  console.log(question.get(true));
+} else console.log(question.get(false));
+
+//convert map to array
+console.log([...question]);
