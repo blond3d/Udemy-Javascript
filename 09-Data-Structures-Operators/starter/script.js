@@ -668,7 +668,8 @@ for (const [key, value] of gameEvents) {
     console.log(`[FIRST HALF] ${key}: ${value}`);
   } else console.log(`[SECOND HALF] ${key}: ${value}`);
 }
-*/
+
+
 //////////////////////////
 //////////////////////////////////
 //WORKING WITH STRINGS PT.1
@@ -704,3 +705,61 @@ const checkMiddleSeat = function (seat) {
 checkMiddleSeat('11B');
 checkMiddleSeat('23C');
 checkMiddleSeat('3E');
+*/
+
+//////////////////////////
+//////////////////////////////////
+//WORKING WITH STRINGS PT.2
+/////////////////////////////////
+
+const airline = 'Tap Air Portugal';
+
+console.log(airline.toLocaleLowerCase());
+console.log(airline.toUpperCase());
+
+//fix capitalization in name
+const passenger = 'jOnas'; // Jonas
+const passengerLower = passenger.toLocaleLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+//Comparing Check email
+const email = 'hello@jonas.io';
+const loginEmail = ' Hello@Jonas.Io \n';
+
+// const lowerEmail = loginEmail.toLocaleLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+const normalizedEmail = loginEmail.toLocaleLowerCase().trim();
+console.log(normalizedEmail);
+console.log(email === normalizedEmail);
+
+//replacing
+const priceGB = '288,97€';
+const priceUS = priceGB.replace('€', '$').replace(',', '.');
+console.log(priceUS);
+
+const announcement =
+  'all passengers come to the boarding door 23. Boarding door 23!';
+console.log(announcement.replaceAll('door', 'gate'));
+
+//booleans
+const plane = 'Airbus A320neo';
+console.log(plane.includes('A320'));
+console.log(plane.startsWith('Airb'));
+
+if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+  console.log('Part of the new Airbus family');
+}
+
+//practice
+const checkBaggage = function (items) {
+  const baggage = items.toLocaleLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are not allowed on board');
+  } else console.log('welcome aboard');
+};
+
+checkBaggage('I have a laptop, some food, and a pocket Knife');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
