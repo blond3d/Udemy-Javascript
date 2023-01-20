@@ -763,7 +763,7 @@ const checkBaggage = function (items) {
 checkBaggage('I have a laptop, some food, and a pocket Knife');
 checkBaggage('Socks and camera');
 checkBaggage('Got some snacks and a gun for protection');
-*/
+
 
 //////////////////////////
 //////////////////////////////////
@@ -818,3 +818,28 @@ const planesInLine = function (n) {
 planesInLine(5);
 planesInLine(3);
 planesInLine(12);
+*/
+
+//////////////////////////
+//////////////////////////////////
+//Challenge 4
+/////////////////////////////////
+
+const textArea = document.body.append(document.createElement('textarea'));
+const button = document.body.append(document.createElement('button'));
+
+document.querySelector('button').addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
+  const rows = text.split('\n');
+  for (const [i, row] of rows.entries()) {
+    const [first, second] = row.toLocaleLowerCase().trim().split('_');
+    const joined = first + second[0].toUpperCase() + second.slice(1);
+    console.log(`${joined.padEnd(20)}${'✅'.repeat(i + 1)}`);
+  }
+});
+
+// underscore_case
+//  first_name
+// Some_Variable
+//   calculate_AGE
+// delayed_departure
