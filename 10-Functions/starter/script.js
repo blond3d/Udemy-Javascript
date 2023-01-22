@@ -55,7 +55,7 @@ const newPassport = function (person) {
 
 newPassport(jonas);
 checkIn(flight, jonas);
-*/
+
 
 /////////////////////////////////
 // Functions accepting callback functions
@@ -89,3 +89,96 @@ const high5 = function () {
 document.body.addEventListener('click', high5);
 
 ['Jonas', 'Martha', 'Adam'].forEach(high5);
+
+
+/////////////////////////////////
+// Functions returning functions
+////////////////////////////////
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+const greeterHello = greet('Hello how are you');
+
+greeterHello('Steven');
+greeterHello('Joe');
+
+greet('Hello')('Jonas');
+
+//Challenge
+
+//My way
+const greetArrow = greeting =>
+  function (name) {
+    return console.log(`${greeting} ${name}`);
+  };
+
+//Jonas way
+const greetArr = greeting => name => console.log(`${greeting} ${name}`);
+
+greetArrow('Hello arrow')('Steven');
+greetArr('Hi')('Joe');
+*/
+
+/////////////////////////////////
+// The call and apply method
+////////////////////////////////
+
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  //OLD way book: function()
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({
+      flight: `${this.iataCode}${flightNum}`,
+      name,
+    });
+  },
+};
+
+lufthansa.book(239, 'Jonas');
+lufthansa.book(182, 'Steven Mendez');
+console.log(lufthansa);
+
+const euroWings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
+
+const book = lufthansa.book;
+
+//DOes not work
+// book(23, 'Smash Williams');
+
+//Call method
+book.call(euroWings, 23, 'Smash Williams');
+console.log(euroWings);
+
+book.call(lufthansa, 239, 'Mary Magdalen');
+console.log(lufthansa);
+
+const swiss = {
+  airline: 'Swiss Air Lines',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+book.call(swiss, 582, 'Mary Magdalen');
+
+//Apply method
+const flightData = [583, 'George Cooper'];
+book.apply(swiss, flightData);
+console.log(swiss);
+
+book.call(swiss, ...flightData);
+
+/////////////////////////////////
+// The bind method
+////////////////////////////////
