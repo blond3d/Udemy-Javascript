@@ -120,7 +120,7 @@ const greetArr = greeting => name => console.log(`${greeting} ${name}`);
 
 greetArrow('Hello arrow')('Steven');
 greetArr('Hi')('Joe');
-*/
+
 
 /////////////////////////////////
 // The call and apply method
@@ -240,3 +240,41 @@ const vat23 = addTaxVat(0.23);
 addTaxVat(200)(0.1);
 
 vat23(100);
+*/
+
+/////////////////////////////////
+// Challenge 1
+////////////////////////////////
+
+const poll = {
+  question: 'What is your favourite programming language?',
+  options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+  // This generates [0, 0, 0, 0]. More in the next section!
+  answers: new Array(4).fill(0),
+  registerNewAnswer() {
+    const answer = Number(
+      prompt(
+        `${this.question} \n ${this.options.join(
+          '\n'
+        )} \n (Write option number)`
+      )
+    );
+    //Register answer
+    if (answer >= 0 && answer <= 3) {
+      this.answers[answer]++;
+    } else console.log('Response is not valid');
+    this.displayResults();
+    this.displayResults('string');
+  },
+  displayResults(type = 'array') {
+    if (type === 'array') {
+      console.log(this.answers);
+    } else if (type === 'string') {
+      console.log(`Poll results are ${this.answers.join(', ')}`);
+    }
+  },
+};
+
+document
+  .querySelector('.poll')
+  .addEventListener('click', poll.registerNewAnswer.bind(poll));
