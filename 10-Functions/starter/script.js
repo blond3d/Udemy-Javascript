@@ -182,3 +182,61 @@ book.call(swiss, ...flightData);
 /////////////////////////////////
 // The bind method
 ////////////////////////////////
+
+const bookEw = book.bind(euroWings);
+const bookLH = book.bind(lufthansa);
+const bookSwiss = book.bind(swiss);
+bookEw(23, 'Steven Mendez');
+
+const bookEW23 = book.bind(euroWings, 23);
+
+bookEW23('John');
+bookEW23('Cooper');
+
+//With event listeners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+  this.planes++;
+  console.log(this.planes);
+};
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+//Partial Application
+
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+
+console.log(addVAT(100));
+console.log(addVAT(23));
+
+//Challenge
+
+// const greet = function (greeting) {
+//   return function (name) {
+//     console.log(`${greeting} ${name}`);
+//   };
+// };
+// const greeterHello = greet('Hello how are you');
+
+// greeterHello('Steven');
+// greeterHello('Joe');
+
+// greet('Hello')('Jonas');
+
+const addTaxVat = function (tax) {
+  return function (value) {
+    console.log(value + value * tax);
+  };
+};
+
+const vat23 = addTaxVat(0.23);
+
+addTaxVat(200)(0.1);
+
+vat23(100);
