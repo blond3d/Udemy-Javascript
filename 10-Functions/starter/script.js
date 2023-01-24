@@ -240,7 +240,7 @@ const vat23 = addTaxVat(0.23);
 addTaxVat(200)(0.1);
 
 vat23(100);
-*/
+
 
 /////////////////////////////////
 // Challenge 1
@@ -278,3 +278,30 @@ const poll = {
 document
   .querySelector('.poll')
   .addEventListener('click', poll.registerNewAnswer.bind(poll));
+*/
+
+/////////////////////////////////
+// Immediatly invoked function expressions
+////////////////////////////////
+const runOnce = function () {
+  console.log('This will never run again');
+};
+
+runOnce();
+
+(function () {
+  console.log('This will never run again');
+  const isPrivate = 23;
+})();
+
+// console.log(isPrivate);
+
+(() => console.log('This will ALSO never run again'))();
+
+{
+  const isPrivate = 23;
+  var notPrivate = 46;
+}
+
+// console.log(isPrivate);
+console.log(notPrivate);
