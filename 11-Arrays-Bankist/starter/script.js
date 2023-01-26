@@ -288,7 +288,7 @@ const withdrawals = movements.filter(function (mov) {
 });
 
 console.log(withdrawals);
-*/
+
 
 ////////////////////////////////////////////////////////////////////////////////
 //Reduce Method
@@ -314,3 +314,28 @@ const max = movements.reduce((acc, mov) => {
 }, movements[0]);
 
 console.log(max);
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+//Challenge 2
+///////////////////////////////////////////////////////////////////////////////
+
+const calcAverageHumanAge = function (arr) {
+  const humanAge = arr.map(function (age) {
+    if (age <= 2) {
+      return 2 * age;
+    } else if (age > 2) {
+      return 16 + age * 4;
+    }
+  });
+  const ageFiltered = humanAge.filter(function (age) {
+    return age >= 18;
+  });
+  const averageAge = ageFiltered.reduce(function (acc, age, i, arr) {
+    return acc + age / arr.length;
+  }, 0);
+  return averageAge;
+};
+
+console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
+console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
