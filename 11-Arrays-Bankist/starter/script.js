@@ -82,6 +82,19 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLocaleLowerCase()
+      .split(' ')
+      .map(name => /*return*/ name[0])
+      .join('');
+  });
+};
+
+console.log(createUsernames(accounts));
+console.log(accounts);
+
 //////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////
@@ -219,7 +232,7 @@ const checkDogs = function (julia, kate) {
 checkDogs(julia1, kate1);
 console.log('-----------');
 checkDogs(julia2, kate2);
-*/
+
 
 ////////////////////////////////////////////////////////////////////////////////
 //Map Method
@@ -248,3 +261,4 @@ const movementsDescription = movements.map(
 );
 
 console.log(movementsDescription);
+*/
