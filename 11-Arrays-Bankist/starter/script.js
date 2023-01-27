@@ -374,7 +374,7 @@ const totalDepositsUSD = movements
   .map(mov => mov * eurToUsd)
   .reduce((acc, mov) => acc + mov, 0);
 console.log(totalDepositsUSD);
-*/
+
 
 ////////////////////////////////////////////////////////////////////////////////
 //Challenge 3
@@ -387,3 +387,27 @@ const calcAverageHumanAgeArr = arr =>
     .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
 
 console.log(calcAverageHumanAgeArr([5, 2, 4, 1, 15, 8, 3]));
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+//Find Method
+///////////////////////////////////////////////////////////////////////////////
+
+const firstWithdrawal = movements.find(mov => mov < 0);
+console.log(movements);
+console.log(firstWithdrawal);
+
+console.log(accounts);
+
+const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+console.log(account);
+
+const accountFor = function (accounts, user) {
+  for (const account of accounts) {
+    if (account.owner === user) {
+      return account.owner;
+    }
+  }
+};
+
+console.log(accountFor(accounts, 'Steven Thomas Williams'));
