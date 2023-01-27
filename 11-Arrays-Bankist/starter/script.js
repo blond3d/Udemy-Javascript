@@ -80,24 +80,25 @@ const displayMovements = function (movements) {
   });
 };
 
-displayMovements(account1.movements);
-
-const calDisplayBalance = function (movements) {
+const calcDisplayBalance = function (movements) {
   const balance = movements.reduce((acc, mov) => acc + mov, 0);
   labelBalance.textContent = `${balance} €`;
 };
 
-const calcDisplaySummary = function (movements) {
-  const incomes = movements
+const calcDisplaySummary = function (acc) {
+  const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumIn.textContent = `${incomes}€`;
-  const out = movements.filter(mov => mov < 0).reduce((acc, mov) => acc + mov);
+
+  const out = acc.movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov);
   labelSumOut.textContent = `${Math.abs(out)}€`;
 
-  const interest = movements
+  const interest = acc.movements
     .filter(mov => mov > 0)
-    .map(deposit => (deposit * 1.2) / 100)
+    .map(deposit => (deposit * acc.interestRate) / 100)
     .filter((int, i, arr) => {
       return int >= 1;
     })
@@ -105,8 +106,6 @@ const calcDisplaySummary = function (movements) {
 
   labelSumInterest.textContent = `${interest}€`;
 };
-
-calcDisplaySummary(account1.movements);
 
 const createUsernames = function (accs) {
   accs.forEach(function (acc) {
@@ -120,7 +119,33 @@ const createUsernames = function (accs) {
 
 createUsernames(accounts);
 
-calDisplayBalance(account1.movements);
+//Event Handlers
+let currentAccount;
+btnLogin.addEventListener('click', function (e) {
+  //Prevent form from submitting
+  e.preventDefault();
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+  console.log(currentAccount);
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    //Display UI and welcome message
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+    containerApp.style.opacity = 100;
+    //Clear inputs
+    inputLoginUsername.value = inputLoginPin.value = '';
+    inputLoginPin.blur();
+    //Display movements
+    displayMovements(currentAccount.movements);
+    //Display Balance
+    calcDisplayBalance(currentAccount.movements);
+    //Display Summary
+    calcDisplaySummary(currentAccount);
+  }
+});
+
 //////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////
@@ -387,7 +412,7 @@ const calcAverageHumanAgeArr = arr =>
     .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
 
 console.log(calcAverageHumanAgeArr([5, 2, 4, 1, 15, 8, 3]));
-*/
+
 
 ////////////////////////////////////////////////////////////////////////////////
 //Find Method
@@ -411,3 +436,4 @@ const accountFor = function (accounts, user) {
 };
 
 console.log(accountFor(accounts, 'Steven Thomas Williams'));
+*/
