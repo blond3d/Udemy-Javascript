@@ -131,24 +131,28 @@ const updateUI = function (acc) {
 
 //Event Handlers
 let currentAccount;
+
 btnLogin.addEventListener('click', function (e) {
-  //Prevent form from submitting
+  // Prevent form from submitting
   e.preventDefault();
+
   currentAccount = accounts.find(
     acc => acc.username === inputLoginUsername.value
   );
+  console.log(currentAccount);
 
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
-    //Display UI and welcome message
+    // Display UI and message
     labelWelcome.textContent = `Welcome back, ${
       currentAccount.owner.split(' ')[0]
     }`;
     containerApp.style.opacity = 100;
-    //Clear inputs
+
+    // Clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
 
-    //Update UI
+    // Update UI
     updateUI(currentAccount);
   }
 });
@@ -174,12 +178,29 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
-//////////////////////////////////////////////////////
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
 
-/////////////////////////////////////////////////
+  if (
+    currentAccount.username === inputCloseUsername.value &&
+    currentAccount.pin === Number(inputClosePin.value)
+  ) {
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccount.username
+    );
+
+    console.log(index);
+    //Delete Account
+    accounts.splice(index, 1);
+    //Hide UI
+    containerApp.style.opacity = 0;
+  }
+  inputCloseUsername.value = inputClosePin.value = '';
+});
+
 /////////////////////////////////////////////////
 // LECTURES
-
+//////////////////////////////////////////////////////
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
