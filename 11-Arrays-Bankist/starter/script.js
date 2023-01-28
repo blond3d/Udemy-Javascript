@@ -567,7 +567,7 @@ const overalBalance2 = accounts
   .flatMap(acc => acc.movements)
   .reduce((acc, mov) => acc + mov, 0);
 console.log(overalBalance2);
-*/
+
 
 ////////////////////////////////////////////////////////////////////////////////
 //Sorting Arrays
@@ -599,3 +599,77 @@ console.log(movements);
 movements.sort((a, b) => b - a);
 
 console.log(movements);
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+//More ways of creating and filling arrays
+///////////////////////////////////////////////////////////////////////////////
+// console.log([1, 2, 3, 4, 5, 6, 7]);
+// console.log(new Array(1, 2, 3, 4, 5, 6, 7));
+
+////////////////////////////////////////////////////////////////////////////////
+//Array Methods Practice
+///////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+//Challenge 4
+///////////////////////////////////////////////////////////////////////////////
+
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+//1)
+dogs.forEach(function (dog, i, arr) {
+  dog.reccFood = Math.trunc(dog.weight ** 0.75 * 28);
+  console.log(dog.reccFood);
+});
+
+//2) helped
+const dogSarah = dogs.find(dog => dog.owners.includes('Sarah'));
+console.log(dogSarah);
+console.log(
+  `Sarah's dog is eating too ${
+    dogSarah.curFood > dogSarah.reccFood ? 'much' : 'little'
+  }`
+);
+
+//3) semi helped
+const ownersEatTooMuch = dogs
+  .filter(dog => dog.curFood > dog.reccFood)
+  .map(dog => dog.owners);
+
+const ownersEatTooLittle = dogs
+  .filter(dog => dog.curFood < dog.reccFood)
+  .map(dog => dog.owners);
+
+console.log(ownersEatTooMuch);
+console.log(ownersEatTooLittle);
+
+//4)
+console.log(`${ownersEatTooMuch.flat(2).join(' and ')}'s dogs eat too much!!!`);
+console.log(
+  `${ownersEatTooLittle.flat(2).join(' and ')}'s dogs eat too little!!!`
+);
+
+//5
+console.log(dogs.some(dog => dog.curFood === dog.reccFood));
+
+//6
+console.log(
+  dogs.some(
+    dog => dog.curFood > dog.reccFood * 0.9 || dog.curFood < dog.reccFood * 1.1
+  )
+);
+
+//7
+const ownersEatingCorrect = dogs.filter(
+  dog => dog.curFood > dog.reccFood * 0.9 || dog.curFood < dog.reccFood * 1.1
+);
+console.log(ownersEatingCorrect, 'l');
+
+const dogsSorted = dogs.slice().sort((a, b) => a.reccFood - b.reccFood);
+console.log(dogsSorted, 's');
