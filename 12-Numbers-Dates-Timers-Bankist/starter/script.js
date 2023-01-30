@@ -160,14 +160,35 @@ const updateUI = function (acc) {
   calcDisplaySummary(acc);
 };
 
+const startLogOutTimer = function () {
+  const tick = function () {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = String(time % 60).padStart(2, 0);
+    //In each call print the remaining time to the ui
+    labelTimer.textContent = `${min}:${sec}`;
+
+    //when 0secs log out user
+    if (time === 0) {
+      clearInterval(timer);
+      labelWelcome.textContent = `Log in to get started`;
+      containerApp.style.opacity = 0;
+    }
+
+    //decrease 1s
+    time--;
+  };
+  //Set time to 5min
+  let time = 300;
+
+  //call the timer every second
+  tick();
+  const timer = setInterval(tick, 1000);
+  return timer;
+};
+
 ///////////////////////////////////////
 // Event handlers
-let currentAccount;
-
-//FAKE ALWAYS Logged in
-currentAccount = account1;
-updateUI(currentAccount);
-containerApp.style.opacity = 100;
+let currentAccount, timer;
 
 const now = new Date();
 const day = `${now.getDate()}`.padStart(2, 0);
@@ -208,6 +229,9 @@ btnLogin.addEventListener('click', function (e) {
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
 
+    if (timer) clearInterval(timer);
+    timer = startLogOutTimer();
+
     // Update UI
     updateUI(currentAccount);
   }
@@ -237,6 +261,10 @@ btnTransfer.addEventListener('click', function (e) {
 
     // Update UI
     updateUI(currentAccount);
+
+    //reset the timer
+    clearInterval(timer);
+    timer = startLogOutTimer();
   }
 });
 
@@ -258,6 +286,8 @@ btnLoan.addEventListener('click', function (e) {
     }, 2500);
   }
   inputLoanAmount.value = '';
+  clearInterval(timer);
+  timer = startLogOutTimer();
 });
 
 btnClose.addEventListener('click', function (e) {
@@ -508,7 +538,6 @@ console.log(Number(+future));
 //Internationalizing Numbers (Intl)
 /////////////////////////////////////////////////
 
-*/
 
 /////////////////////////////////////////////////
 //setTimeout and setInterval
@@ -535,3 +564,5 @@ setInterval(function () {
   const secs = `${now.getSeconds()}`.padStart(2, 0);
   console.log(`${hour}:${min}:${secs}`);
 }, 1000);
+
+*/
