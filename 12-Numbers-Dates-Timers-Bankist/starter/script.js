@@ -357,7 +357,7 @@ labelBalance.addEventListener('click', function () {
     if (i % 3 === 0) row.style.backgroundColor = 'blue';
   });
 });
-*/
+
 
 /////////////////////////////////////////////////
 //Numeric Separator
@@ -376,3 +376,38 @@ const PI = 3.14_15;
 console.log(PI);
 
 console.log(Number('230000'));
+*/
+
+/////////////////////////////////////////////////
+//Working with BigInt
+/////////////////////////////////////////////////
+
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(2 ** 53 + 1);
+console.log(2 ** 53 + 2);
+console.log(2 ** 53 + 3);
+console.log(2 ** 53 + 4);
+
+console.log(18019801830918309812098210983210913n);
+console.log(BigInt(23281879813));
+
+//Operations
+console.log(10000n + 10000n);
+console.log(182798127981729812727n * 78139872198792837912n);
+
+const num = 23;
+const huge = 71793279821798237972123n;
+console.log(huge * BigInt(num));
+
+//Exceptions
+console.log(20n > 15);
+console.log(20n == 20);
+console.log(20n === 20);
+console.log(typeof 20n);
+
+console.log(huge + 'is REALLY big!!!!');
+
+//Divisions
+console.log(11n / 3n);
+console.log(10 / 3);
