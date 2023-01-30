@@ -328,7 +328,7 @@ console.log((2.7).toFixed(0), 'l');
 console.log((2.7).toFixed(3));
 console.log((2.345).toFixed(2));
 console.log(+(2.345).toFixed(2));
-*/
+
 
 /////////////////////////////////////////////////
 //The remainder Operator
@@ -357,3 +357,22 @@ labelBalance.addEventListener('click', function () {
     if (i % 3 === 0) row.style.backgroundColor = 'blue';
   });
 });
+*/
+
+/////////////////////////////////////////////////
+//Numeric Separator
+/////////////////////////////////////////////////
+
+const diameter = 287_460_000_000;
+console.log(diameter);
+
+const price = 345_99;
+console.log(price);
+
+const transferFee = 15_00;
+const transferFee2 = 1_500;
+
+const PI = 3.14_15;
+console.log(PI);
+
+console.log(Number('230000'));
