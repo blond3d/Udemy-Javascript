@@ -30,10 +30,45 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
+//////////////////////////////////
+//Smooth Scrolling
+////////////////////////////////
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (e) {
+  const s1coords = section1.getBoundingClientRect();
+  console.log(s1coords);
+
+  console.log(e.target.getBoundingClientRect());
+  console.log('Current scroll (X/Y)', window.pageXOffset, window.pageYOffset);
+
+  console.log(
+    'height/width viewport',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  );
+
+  //Scrolling
+  // window.scrollTo(
+  //   s1coords.left + window.pageXOffset,
+  //   s1coords.top + window.pageYOffset
+  // );
+
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset,
+  //   top: s1coords.top + window.pageYOffset,
+  //   behavior: 'smooth',
+  // });
+
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
+
 //////////////////////////////////////////////
 //Selecting, creating and deleting elements
 //////////////////////////////////////////////
-
+/*
 //Selecting elements
 console.log(document.documentElement);
 console.log(document.head);
@@ -92,7 +127,7 @@ console.log(getComputedStyle(message).height);
 message.style.height =
   Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px';
 
-document.documentElement.style.setProperty('--color-primary', 'orangered');
+// document.documentElement.style.setProperty('--color-primary', 'orangered');
 
 //Attributes
 const logo = document.querySelector('.nav__logo');
@@ -126,3 +161,4 @@ logo.classList.contains('c'); //Not Includes
 
 //Don't use will overwrite all classes
 // logo.className ='jonas'
+*/
