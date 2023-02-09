@@ -41,33 +41,33 @@ jonas.calcAge();
 matilda.calcAge();
 jack.calcAge();
 
-console.log(jonas.__proto__);
-console.log(jonas.__proto__ === Person.prototype);
+// console.log(jonas.__proto__);
+// console.log(jonas.__proto__ === Person.prototype);
 
-console.log(Person.prototype.isPrototypeOf(jonas));
-console.log(Person.prototype.isPrototypeOf(matilda));
-console.log(Person.prototype.isPrototypeOf(Person));
+// console.log(Person.prototype.isPrototypeOf(jonas));
+// console.log(Person.prototype.isPrototypeOf(matilda));
+// console.log(Person.prototype.isPrototypeOf(Person));
 
 Person.prototype.species = 'Homo Sapiens';
-console.log(jonas.species, matilda.species);
+// console.log(jonas.species, matilda.species);
 
-console.log(jonas.hasOwnProperty('firstName'));
-console.log(jonas.hasOwnProperty('species'));
+// console.log(jonas.hasOwnProperty('firstName'));
+// console.log(jonas.hasOwnProperty('species'));
 
 ///////////////////////////////////
 //Prototypal inheritance on built in objects
 ///////////////////////////////////
 
-console.log(jonas.__proto__);
+// console.log(jonas.__proto__);
 //Object.prototype (top of prototype chain)
-console.log(jonas.__proto__.__proto__);
-console.log(jonas.__proto__.__proto__.__proto__);
+// console.log(jonas.__proto__.__proto__);
+// console.log(jonas.__proto__.__proto__.__proto__);
 
-console.dir(Person.prototype.constructor);
+// console.dir(Person.prototype.constructor);
 
 const arr = [3, 4, 5, 5, 4, 7, 9, 9]; //new Array === []
-console.log(arr.__proto__);
-console.log(arr.__proto__ === Array.prototype);
+// console.log(arr.__proto__);
+// console.log(arr.__proto__ === Array.prototype);
 
 console.log(arr.__proto__.__proto__);
 
@@ -75,11 +75,35 @@ Array.prototype.unique = function () {
   return [...new Set(this)];
 };
 
-console.log(arr.unique());
+// console.log(arr.unique());
 
 const h1 = document.querySelector('h1');
-console.dir(x => x + 1);
+// console.dir(x => x + 1);
 
 ///////////////////////////////////
 //Challenge 1
 ///////////////////////////////////
+
+const Car = function (make, speed) {
+  this.make = make;
+  this.speed = speed + 'km/h';
+};
+
+Car.prototype.accelerate = function () {
+  const speedNum = parseInt(this.speed) + 10;
+  this.speed = `${speedNum}km/h`;
+  console.log(this.speed);
+};
+Car.prototype.brake = function () {
+  const speedNum = parseInt(this.speed) - 5;
+  this.speed = `${speedNum}km/h`;
+  console.log(this.speed);
+};
+
+const bmw = new Car('bmw', 120);
+const mercedes = new Car('Mercedes', 95);
+bmw.accelerate();
+mercedes.accelerate();
+bmw.brake();
+mercedes.brake();
+mercedes.brake();
