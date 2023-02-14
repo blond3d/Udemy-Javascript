@@ -202,7 +202,7 @@ console.log(account.movements);
 
 PersonCl.hey();
 
-*/
+
 
 ///////////////////////////////////
 //Object.create
@@ -230,3 +230,39 @@ console.log(steven.__proto__);
 const sarah = Object.create(PersonProto);
 sarah.init('Sarah', 1979);
 sarah.calcAge();
+*/
+
+///////////////////////////////////
+//Challenge 2
+///////////////////////////////////
+
+class CarCl {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+
+  accelerate() {
+    this.speed += 10;
+  }
+
+  brake() {
+    this.speed -= 5;
+  }
+
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+
+  set speedUS(speed) {
+    return (this.speed = speed * 1.6);
+  }
+}
+
+const ford = new CarCl('Ford', 120);
+console.log(ford.speedUS);
+
+ford.speedUS = 200;
+console.log(ford.speedUS);
+ford.brake();
+console.log(ford.speed);
