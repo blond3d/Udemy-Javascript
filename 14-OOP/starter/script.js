@@ -3,7 +3,7 @@
 ///////////////////////////////////
 //Constructor functions and the new operator
 //////////////////////////////////
-
+/*
 const Person = function (firstName, birthYear) {
   //Instance property
   this.firstName = firstName;
@@ -85,7 +85,7 @@ Array.prototype.unique = function () {
 
 const h1 = document.querySelector('h1');
 // console.dir(x => x + 1);
-
+ */
 ///////////////////////////////////
 //Challenge 1
 ///////////////////////////////////
@@ -114,7 +114,7 @@ bmw.brake();
 mercedes.brake();
 mercedes.brake();
 */
-
+/*
 ///////////////////////////////////
 //ES6 Classes
 ///////////////////////////////////
@@ -201,3 +201,32 @@ console.log(account.movements);
 ///////////////////////////////////
 
 PersonCl.hey();
+
+*/
+
+///////////////////////////////////
+//Object.create
+///////////////////////////////////
+
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const steven = Object.create(PersonProto);
+console.log(steven);
+steven.name = 'Steven';
+steven.birthYear = 1993;
+steven.calcAge();
+
+console.log(steven.__proto__);
+
+const sarah = Object.create(PersonProto);
+sarah.init('Sarah', 1979);
+sarah.calcAge();
