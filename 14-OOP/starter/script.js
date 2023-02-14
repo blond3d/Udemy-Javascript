@@ -29,6 +29,12 @@ const jack = new Person('Jack', 1975);
 console.log(matilda, jack);
 console.log(jonas instanceof Person);
 
+Person.hey = function () {
+  console.log('Hey there');
+};
+
+Person.hey();
+
 ///////////////////////////////////
 //Prototypes
 ///////////////////////////////////
@@ -128,7 +134,7 @@ class PersonCl {
   }
 
   greet() {
-    console.log(`Hey ${this.firstName}`);
+    console.log(`Hey ${this.fullName}`);
   }
 
   get age() {
@@ -144,6 +150,11 @@ class PersonCl {
 
   get fullName() {
     return this._fullName;
+  }
+
+  static hey() {
+    console.log('Hey there, class');
+    console.log(this);
   }
 }
 
@@ -184,3 +195,9 @@ console.log(account.latest);
 
 account.latest = 50;
 console.log(account.movements);
+
+///////////////////////////////////
+//Static Methods
+///////////////////////////////////
+
+PersonCl.hey();
