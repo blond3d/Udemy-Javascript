@@ -448,32 +448,51 @@ jay.calcAge();
 //Another Class example
 ///////////////////////////////////
 
+// 1)Public Fields
+// 2)Private fields
+// 3)Public Methods
+// 4)Private Methods
 class Account {
+  // 1)Public field (instance)
+  locale = navigator.language;
+
+  // 2)Private Fields
+  #movements = [];
+  #pin;
+
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
-    this.pin = pin;
-    this.movements = [];
-    this.locale = navigator.language;
+    //Protected Property
+    this.#pin = pin;
+    // this._movements = [];
+    // this.locale = navigator.language;
     console.log(`Thanks for opening an account, ${owner}`);
   }
 
-  //Public interface
+  // 3)Public Methods
+  //  Public interface
+  getMovements() {
+    return this.#movements;
+  }
+
   deposit(val) {
-    this.movements.push(val);
+    this.#movements.push(val);
   }
   withdraw(val) {
     this.deposit(-val);
   }
-  approvedLoan(val) {
-    return true;
-  }
 
   requestLoan(val) {
-    if (this.approvedLoan(val)) {
+    if (this._approvedLoan(val)) {
       this.deposit(val);
       console.log(`Loan approved`);
     }
+  }
+
+  // 4) Private methods
+  _approvedLoan(val) {
+    return true;
   }
 }
 
@@ -483,7 +502,14 @@ const acc1 = new Account('Jonas', 'EUR', 1111);
 acc1.deposit(250);
 acc1.withdraw(140);
 acc1.requestLoan(1000);
+console.log(acc1.getMovements());
 
 console.log(acc1);
 
-console.log(acc1.pin);
+///////////////////////////////////
+//EncapsulationL Private Class fields and methods
+///////////////////////////////////
+
+// console.log(acc1.#movements);
+// console.log(acc1.#pin);
+// console.log(acc1.#approvedLoan(100));
