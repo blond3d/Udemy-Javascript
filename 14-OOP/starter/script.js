@@ -270,7 +270,7 @@ sarah.calcAge();
 ///////////////////////////////////
 //Inheritance between classes: Constructor Functions
 ///////////////////////////////////
-
+/*
 const Person = function (firstName, birthYear) {
   //Instance property
   this.firstName = firstName;
@@ -307,11 +307,11 @@ console.log(mike.__proto__.__proto__);
 
 Student.prototype.constructor = Student;
 console.dir(Student.prototype.constructor);
-
+*/
 ///////////////////////////////////
 //Challenge 3
 ///////////////////////////////////
-
+/*
 const Car = function (make, speed) {
   this.make = make;
   this.speed = speed;
@@ -347,3 +347,66 @@ const tesla = new EV('Tesla', 120, 23);
 tesla.chargeBattery(90);
 tesla.brake();
 tesla.accelerate();
+*/
+
+///////////////////////////////////
+//Inheritance between classes: ES6 Classes
+///////////////////////////////////
+
+class PersonCl {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+  //Methods will be added to .prototype property
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`Hey ${this.fullName}`);
+  }
+
+  get age() {
+    return 2037 - this.birthYear;
+  }
+
+  //Set a property that already exists
+  set fullName(name) {
+    if (name.includes(' ')) {
+      this._fullName = name;
+    } else alert(`${name} is not a full name`);
+  }
+
+  get fullName() {
+    return this._fullName;
+  }
+
+  static hey() {
+    console.log('Hey there, class');
+    console.log(this);
+  }
+}
+
+class StudentCL extends PersonCl {
+  constructor(fullName, birthYear, course) {
+    super(fullName, birthYear);
+    this.course = course;
+  }
+  introduce() {
+    console.log(`My name is ${this.fullName} and I study ${this.course}`);
+  }
+  calcAge() {
+    console.log(
+      `I'm ${
+        2037 - this.birthYear
+      } years old, but as a student I feel more like ${
+        2037 - this.birthYear + 10
+      }`
+    );
+  }
+}
+
+const martha = new StudentCL('Martha Jones', 2012, 'Computer Science');
+martha.introduce();
+martha.calcAge();
