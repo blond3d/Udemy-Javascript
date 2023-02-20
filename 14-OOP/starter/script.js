@@ -415,7 +415,7 @@ martha.calcAge();
 ///////////////////////////////////
 //Inheritance between classes: Object.create
 ///////////////////////////////////
-
+/*
 const PersonProto = {
   calcAge() {
     console.log(2037 - this.birthYear);
@@ -478,16 +478,22 @@ class Account {
 
   deposit(val) {
     this.#movements.push(val);
+    return this;
   }
   withdraw(val) {
     this.deposit(-val);
+    return this;
   }
 
   requestLoan(val) {
     if (this._approvedLoan(val)) {
       this.deposit(val);
       console.log(`Loan approved`);
+      return this;
     }
+  }
+  static helper() {
+    console.log('Helper');
   }
 
   // 4) Private methods
@@ -513,3 +519,76 @@ console.log(acc1);
 // console.log(acc1.#movements);
 // console.log(acc1.#pin);
 // console.log(acc1.#approvedLoan(100));
+
+///////////////////////////////////
+//Chaining methods
+///////////////////////////////////
+
+acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
+console.log(acc1.getMovements());
+*/
+
+//Challenge 4
+
+class CarCl {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+
+  accelerate() {
+    this.speed += 10;
+    return this;
+  }
+
+  brake() {
+    this.speed -= 5;
+    return this;
+  }
+
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+
+  set speedUS(speed) {
+    return (this.speed = speed * 1.6);
+  }
+}
+
+class EVCL extends CarCl {
+  #charge;
+  constructor(make, speed, charge) {
+    super(make, speed);
+    this.#charge = charge;
+  }
+  chargeBattery(chargeTo) {
+    this.#charge = chargeTo;
+    return this;
+  }
+  accelerate() {
+    this.speed += 20;
+    this.#charge--;
+    console.log(
+      `${this.make} going at ${this.speed}km/h, with a charge of ${
+        this.#charge
+      }%`
+    );
+    return this;
+  }
+}
+
+const rivian = new EVCL('Rivian', 120, 23);
+
+console.log(
+  rivian
+    .accelerate()
+    .accelerate()
+    .chargeBattery(100)
+    .accelerate()
+    .brake()
+    .brake()
+    .brake()
+    .accelerate()
+    .accelerate()
+    .accelerate()
+);
